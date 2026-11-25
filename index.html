@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Xmind:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="java.js"></script>
+
+</head>
+
+<!-- NAVBAR -->
+
+<body>
+  <header>
+    <nav class="container__nav">
+      <div class="nav__logo">
+        <img src="/assets/ab-logo-final-plus-ultra.png" alt="Logo" class="nav__logo--img">
+        <h2 class="logo__text"><span class="frontend">AB</span> Flix</h2>
+      </div>
+      <div class="nav__search">
+        <input type="text" placeholder="Search..." class="search__input" id="search-movies" >
+        <button onClick="submit" class="search__button" id="search-form"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+    </nav>
+  </header>
+    
+  
+  <!-- SEARCH RESULTS/CONTENT -->
+
+  <main class="container__content">
+    <div class="top__bar">
+      <h2 id="search-term">Showing:</h2>
+        <div class="sort">
+          <label for="sort" class="sort__label">Sort by:
+          </label>
+
+          <select id="sort">
+            <option>Default</option>
+            <option>A-Z</option>
+            <option>Newest</option>
+            <option>Oldest</option>
+          </select>
+    </div>
+      
+    </div>
+
+    <container class="container__content--movies" id="movie-results">
+
+      <!-- <div class="movie__card">
+        <img src="https://www.themoviedb.org/t/p/original/qMxAmzGQO722q0UlssCOPhrXmvX.jpg" alt="Movie Poster" class="movie__poster">
+        <div class="movie__card--text">
+          <h4 class="movie__card--title">Movie:  Title</h4>
+          <h4 class="movie__year">YEAR</h4>
+        </div>
+      </div> -->
+
+    </container>
+  </main>
+ 
+</body>
+</html>

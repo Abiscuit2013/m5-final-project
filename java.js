@@ -5,9 +5,9 @@
 
 const API_KEY = '19d01bc6';
 
-const searchForm = document.querySelector('#search-form');
+const searchBar = document.querySelector('#searchForm');
 
-const searchInput = document.querySelector('#search-movies');
+const searchInput = document.querySelector('#searchBtn');
 
 const movieContainer = document.querySelector('#movie-results');
 
@@ -17,7 +17,7 @@ const filter = document.querySelector('#sort');
 
 let movieResults = [];
 
-searchForm.addEventListener('submit', (event) => {
+searchBar.addEventListener('submit', (event) => {
   event.preventDefault();
   const resultsInfo = searchInput.value.trim();
   if (resultsInfo) {
@@ -27,15 +27,15 @@ searchForm.addEventListener('submit', (event) => {
 
 
 
-function searchMovies(searchTerm) {
+function searchMovies(searchInput) {
   
-  if (!searchTerm.trim()) {
+  if (!searchInput.trim()) {
     movieContainer.innerHTML = "";
     movieResults = [];
     return;
   }
   
-  const apiURL = `https://www.omdbapi.com/?apikey=19d01bc6&s=${encodeURIComponent(searchTerm)}`
+  const apiURL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(searchInput)}`
 
 fetch(apiURL) 
   .then(response => response.json())

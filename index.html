@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
-  <script src="java.js"></script>
+  <script src="java.js" defer></script>
 
 </head>
 
@@ -27,10 +27,10 @@
         <img src="/assets/ab-logo-final-plus-ultra.png" alt="Logo" class="nav__logo--img">
         <h2 class="logo__text"><span class="frontend">AB</span> Flix</h2>
       </div>
-      <div class="nav__search">
-        <input type="text" placeholder="Search..." class="search__input" id="searchForm" >
-        <button onClick="submit" class="search__button" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
-      </div>
+      <container class="nav__search" id="searchForm">
+        <input type="text" placeholder="Search..." class="search__input" id="search-movies" >
+        <button class="search__button" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </container>
     </nav>
   </header>
     
@@ -39,7 +39,7 @@
 
   <main class="container__content">
     <div class="top__bar">
-      <h2 id="search-term">Showing:</h2>
+      <h2 id="showing-results">Showing:</h2>
         <div class="sort">
           <label for="sort" class="sort__label">Sort by:
           </label>

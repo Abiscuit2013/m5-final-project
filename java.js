@@ -1,25 +1,24 @@
-
 // let data = (responce => respose.json);
 
 // let search = document.getElementById("nav-bar__search");
 
-const API_KEY = '19d01bc6';
+const API_KEY = "19d01bc6";
 
-const searchBar = document.querySelector('#searchForm');
+const searchBar = document.querySelector("#searchForm");
 
-const searchInput = document.querySelector('#search-movies');
+const searchInput = document.querySelector("#search-movies");
 
-const searchBtn = document.querySelector('#searchBtn');
+const searchBtn = document.querySelector("#searchBtn");
 
-const movieContainer = document.querySelector('#movie-results');
+const movieContainer = document.querySelector("#movie-results");
 
-const resultsInfo = document.querySelector('#showing-results')
+const resultsInfo = document.querySelector("#showing-results");
 
-const filter = document.querySelector('#sort');
+const filter = document.querySelector("#sort");
 
 let movieResults = [];
 
-searchBtn.addEventListener('click', (event) => {
+searchBtn.addEventListener("click", (event) => {
   event.preventDefault();
   const resultsInfo = searchInput.value.trim();
   console.log(resultsInfo);
@@ -28,59 +27,45 @@ searchBtn.addEventListener('click', (event) => {
   }
 });
 
-
-
-function fetchMovies(movieContainer
-) {
-  
+function fetchMovies(movieContainer) {
   if (!searchInput.trim()) {
     movieContainer.innerHTML = "";
     movieResults = [];
     displayMovies(movieContainer);
     return;
   }
-  
-  const apiURL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(searchInput)}`
-  
+
+  const apiURL = `https://www.omdbapi.com/?apikey=${API_KEY}&s=${encodeURIComponent(searchInput)}`;
+
   function displayMovies(movies) {
-    const innerHTML = movies.map(movie => {
-      const Poster = movie.Poster !== 'N/A' ? movie.Poster : '';
-  
-      return movieContainer.innerHTML = movieResults;
-    }).join('');
+    const innerHTML = movies
+      .map((movie) => {
+        const Poster = movie.Poster !== "N/A" ? movie.Poster : "";
+
+        return;
+      })
+      .join("");
+    return innerHTML;
   }
 
-fetch(apiURL) 
-  .then(response => response.json())
-  .then(data => {
-    if (data.Response === "True") {
-      movieResults = data; 
-      movieContainer.innerHTML = displayMovies(movieResults);
-    } 
-    else {
-      movieContainer.innerHTML = `<p>No movies found. Please refine your search and try again..</p>`;
-    }
-  })
-  
-  .catch(error => {
-    console.error("Something went wrong:", error);
-    movieContainer.innerHTML = `
+  fetch(apiURL)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.Response === "True") {
+        movieResults = data.Search;
+        movieContainer.innerHTML = displayMovies(movieResults);
+      } else {
+        movieContainer.innerHTML = `<p>No movies found. Please refine your search and try again..</p>`;
+      }
+    })
+
+    .catch((error) => {
+      console.error("Something went wrong:", error);
+      movieContainer.innerHTML = `
     <p>Error</p>
-    `
-  });
+    `;
+    });
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 // `
 //       <div class="movie__card">
